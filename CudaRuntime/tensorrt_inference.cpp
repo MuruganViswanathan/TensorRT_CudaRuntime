@@ -1,4 +1,13 @@
-﻿#include <NvInfer.h>
+﻿// Author: Murugan Viswanathan
+// This project uses a pretrained ONNX file (GoogleNet model)
+// Step 1: Install all dependent libraries: TensorRT, OpenCV etc onWindows
+// Step 2: Use trtexec.exe to convert ONNX file to googlenet.engine file
+//  command: trtexec.exe --onnx=googlenet_ultrasound.onnx --saveEngine=googlenet.engine --minShapes=input:1x3x224x224 --optShapes=input:1x3x224x224 --maxShapes=input:1x3x224x224 --fp16 --explicitBatch
+// Step 3: Run the solution to infer a given US image file (hardcoded in kernel.cu). Example: ImageBreast.JPG
+// This is a Prototype file for POC. Not a production level code.
+// TODO: Functionally working , but to be refined
+
+#include <NvInfer.h>
 #include <NvOnnxParser.h>
 #include <cuda_runtime_api.h>
 #include <opencv2/opencv.hpp>
